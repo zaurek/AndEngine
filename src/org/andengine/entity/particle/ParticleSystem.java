@@ -27,7 +27,7 @@ public class ParticleSystem<T extends IEntity> extends Entity {
 	// Constants
 	// ===========================================================
 
-	private static final float[] POSITION_OFFSET_CONTAINER = new float[2];
+	protected static final float[] POSITION_OFFSET_CONTAINER = new float[2];
 
 	// ===========================================================
 	// Fields
@@ -172,7 +172,7 @@ public class ParticleSystem<T extends IEntity> extends Entity {
 		this.mParticleInitializers.remove(pParticleInitializer);
 	}
 
-	private void spawnParticles(final float pSecondsElapsed) {
+	protected void spawnParticles(final float pSecondsElapsed) {
 		final float currentRate = this.determineCurrentRate();
 		final float newParticlesThisFrame = currentRate * pSecondsElapsed;
 
@@ -186,7 +186,7 @@ public class ParticleSystem<T extends IEntity> extends Entity {
 		}
 	}
 
-	private void spawnParticle() {
+	protected void spawnParticle() {
 		if(this.mParticlesAlive < this.mParticlesMaximum){
 			Particle<T> particle = this.mParticles[this.mParticlesAlive];
 
